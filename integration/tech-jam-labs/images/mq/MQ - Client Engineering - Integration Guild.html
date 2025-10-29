@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)http://localhost:8000/learning/tech-jam/materials/mq/#explore-the-mq-console -->
+<html lang="en" class="js-focus-visible js" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+      
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="John Abbott">
+      
+      
+        <link rel="canonical" href="http://127.0.0.1:8000/learning/tech-jam/materials/mq/">
+      
+      <link rel="icon" href="./MQ - Client Engineering - Integration Guild_files/ClientEngLogo.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>MQ - Client Engineering - Integration Guild</title>
+      
+    
+    
+      <link rel="stylesheet" href="./MQ - Client Engineering - Integration Guild_files/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="./MQ - Client Engineering - Integration Guild_files/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link rel="stylesheet" href="./MQ - Client Engineering - Integration Guild_files/css">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="./MQ - Client Engineering - Integration Guild_files/extra.css">
+    
+      <link rel="stylesheet" href="./MQ - Client Engineering - Integration Guild_files/code.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+  <!-- Determine title -->
+  
+  
+    
+  
+
+  <!-- The image needs to have an absolute URL -->
+  
+
+  <!-- Open graph meta tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Client Engineering - Integration Guild - MQ">
+  <meta property="og:description" content="None">
+  <meta property="og:url" content="http://127.0.0.1:8000/learning/tech-jam/materials/mq/">
+  <meta property="og:image" content="http://127.0.0.1:8000/assets/images/banner.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="568">
+
+
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="http://localhost:8000/learning/tech-jam/materials/mq/#getting-started-with-mq-lab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="http://localhost:8000/" title="Client Engineering - Integration Guild" class="md-header__button md-logo" aria-label="Client Engineering - Integration Guild" data-md-component="logo">
+      
+  <img src="./MQ - Client Engineering - Integration Guild_files/ClientEngLogo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title md-header__title--active" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Client Engineering - Integration Guild
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">Type to start searching</div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.ibm.com/skol/ce-int-guild" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="http://localhost:8000/" class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="http://localhost:8000/calendar/" class="md-tabs__link">
+        Events
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="http://localhost:8000/learning/" class="md-tabs__link md-tabs__link--active">
+        Continuous Education
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="http://localhost:8000/accelerators/" class="md-tabs__link">
+        Accelerators
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="http://localhost:8000/assets/" class="md-tabs__link">
+        Assets
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="http://localhost:8000/resources/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 108px;">
+                <div class="md-sidebar__scrollwrap" style="height: 640px;">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+  
+
+
+
+<!-- Main navigation -->
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+
+  <!-- Site title -->
+  <!--
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href="../../../.."
+      title="Client Engineering - Integration Guild"
+      class="md-nav__button md-logo"
+      aria-label="Client Engineering - Integration Guild"
+      data-md-component="logo"
+    >
+      
+  <img src="../../../../images/ClientEngLogo.png" alt="logo">
+
+    </a>
+    Client Engineering - Integration Guild
+  </label>
+-->
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      <a href="https://github.ibm.com/skol/ce-int-guild" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list">
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1">
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="http://localhost:8000/">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list">
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2">
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="http://localhost:8000/calendar/">Events</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Events" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Events
+        </label>
+        <ul class="md-nav__list">
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/calendar/2022/april/" class="md-nav__link">
+        April 2022
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/calendar/2022/may/" class="md-nav__link">
+        May 2022
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/calendar/2022/june/" class="md-nav__link">
+        June 2022
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked="">
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="http://localhost:8000/learning/">Continuous Education</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Continuous Education" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Continuous Education
+        </label>
+        <ul class="md-nav__list">
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked="">
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Integration Tech Jam
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integration Tech Jam" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Integration Tech Jam
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2">
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_2">
+          Prerequisites
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prerequisites" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prerequisites
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/materials/prereq-roks/" class="md-nav__link">
+        ROKS Cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/materials/prereq-ace-toolkit/" class="md-nav__link">
+        ACE Dev Toolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/materials/prereq-general/" class="md-nav__link">
+        General Prep
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/materials/cp4i-deployment/" class="md-nav__link">
+        Deploying CP4Int
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="http://localhost:8000/learning/tech-jam/materials/mq/" class="md-nav__link md-nav__link--active">
+        MQ
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#scenario-overview" class="md-nav__link md-nav__link--passed">
+    Scenario Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#create-a-simple-queue-manager-using-the-ui" class="md-nav__link md-nav__link--passed">
+    Create a simple queue manager using the UI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#explore-the-mq-console" class="md-nav__link md-nav__link--passed md-nav__link--active">
+    Explore the MQ Console
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#test-message-put-and-get" class="md-nav__link">
+    Test message put and get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#create-configmap-for-demo-queue-manager" class="md-nav__link">
+    Create ConfigMap for demo queue manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#create-native-ha-queue-manager-for-demo" class="md-nav__link">
+    Create Native HA queue manager for demo
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/materials/event-streams/" class="md-nav__link">
+        EventStreams
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/materials/ace/" class="md-nav__link">
+        App Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/learning/tech-jam/materials/apic/" class="md-nav__link">
+        API Connect
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4">
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="http://localhost:8000/accelerators/">Accelerators</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Accelerators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Accelerators
+        </label>
+        <ul class="md-nav__list">
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://localhost:8000/accelerators/agile-int-mod/" class="md-nav__link">
+        Agile Integration ACE &amp; MQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5">
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="http://localhost:8000/assets/">Assets</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Assets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Assets
+        </label>
+        <ul class="md-nav__list">
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6">
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="http://localhost:8000/resources/">Resources</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list">
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 108px;">
+                <div class="md-sidebar__scrollwrap" style="height: 640px;">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#scenario-overview" class="md-nav__link md-nav__link--passed">
+    Scenario Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#create-a-simple-queue-manager-using-the-ui" class="md-nav__link md-nav__link--passed">
+    Create a simple queue manager using the UI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#explore-the-mq-console" class="md-nav__link md-nav__link--passed md-nav__link--active">
+    Explore the MQ Console
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#test-message-put-and-get" class="md-nav__link">
+    Test message put and get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#create-configmap-for-demo-queue-manager" class="md-nav__link">
+    Create ConfigMap for demo queue manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://localhost:8000/learning/tech-jam/materials/mq/#create-native-ha-queue-manager-for-demo" class="md-nav__link">
+    Create Native HA queue manager for demo
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="getting-started-with-mq-lab">Getting started with MQ Lab<a class="headerlink" href="http://localhost:8000/learning/tech-jam/materials/mq/#getting-started-with-mq-lab" title="Permanent link">¶</a></h1>
+<p>This document explains:</p>
+<ul>
+<li>Creating a simple queue manager from the Cloud Pak UI</li>
+<li>Exploring the MQ Console</li>
+<li>Test message put and get</li>
+<li>Creating a ConfigMap for configuration of a queue manager using a yaml file, for the demo</li>
+<li>Creating a Native HA queue manager using a yaml file, for the demo</li>
+</ul>
+<h2 id="scenario-overview">Scenario Overview<a class="headerlink" href="http://localhost:8000/learning/tech-jam/materials/mq/#scenario-overview" title="Permanent link">¶</a></h2>
+<p>Typically you would not create a queue manager using the UI in a real world customer deployment, it is very handy to be able to show how simple it is to do so in a demo.</p>
+<p>To begin with you will create a very simple queue manager using the UI.  Next you will use the MQ console to edit the queue manager configuration and create a queue for testing.  Following that you will use some of the supplied MQ tools to test that you are able to put and get messages from a queue.</p>
+<h2 id="create-a-simple-queue-manager-using-the-ui">Create a simple queue manager using the UI<a class="headerlink" href="http://localhost:8000/learning/tech-jam/materials/mq/#create-a-simple-queue-manager-using-the-ui" title="Permanent link">¶</a></h2>
+<p>Log on to the Platform UI (formerly known as the Platform Navigator) and select <strong><em>Integration Instances</em></strong></p>
+<p>You will see a list of any instances of Cloud Pak capabilities already deployed.   Now create a new MQ instance (queue manager). Select <strong><em>Create an Instance</em></strong></p>
+<p>Select <strong><em>Messaging</em></strong> as the instance you want to create. Click <strong><em>Next</em></strong></p>
+<p>As you are creating a very basic queue manager, select the  <strong><em>Quick Start</em></strong> type of queue manager. Click <strong><em>Next</em></strong></p>
+<p><img alt="create-qmgr" src="./MQ - Client Engineering - Integration Guild_files/01-create-qmgr.png" style="height: auto;width: 70%;"></p>
+<p>Using the dropdown list, select <strong><em>tools</em></strong> as the namespace to contain the queue manager (you can leave the default name) and accept the license agreement. </p>
+<p>Do <strong>NOT</strong> click Next yet. Scroll down the page </p>
+<p><img alt="qmgr-details" src="./MQ - Client Engineering - Integration Guild_files/02-qmgr-details.png" style="height: auto;width: 90%;"></p>
+<p>You must now decide the level of resiliency for the queue manager.  From the dropdown list select <strong><em>Single Instance</em></strong>. This will create what is known as a single resilient queue manager (ie: a single pod which will be restarted automatically in the event of a failure).  YOU would normally back this up with persistent storage for the queue manager data and logs, but as this is a test only, leave the default <strong><em>ephemeral</em></strong> storage (ie: non-persistent).</p>
+<p>Also, turn on the tracing for the Operations Dashboard, from the dropdown box selecting <strong><em>tools</em></strong> as the namespace of the Ops Dashboard.  You will not be sending any MQ messages that utilize the Operations Dashboard in this particular lab, this is merely so that you know where it is in the UI.</p>
+<p><img alt="tracing" src="./MQ - Client Engineering - Integration Guild_files/03-tracing.png" style="height: auto;width: 90%;"></p>
+<p>A couple of last things for you to inspect prior to moving on. Click on the <strong><em>Advanced Settings</em></strong> button.</p>
+<p><img alt="qmgr-adv-settings" src="./MQ - Client Engineering - Integration Guild_files/04-qmgr-adv-settings.png" style="height: auto;width: 20%;"></p>
+<p>In the part of the lab for the demo queue manager we will create a config map used to configure the queue manager and its' objects. In the UI this is where you can point to a config map (which may contain <code>mqsc</code> scripts or <code>qm.ini</code> overrides). You can also specifically name your queue manager here, (for the purposes of this lab QUICKSTART is fine). If you are wanting to add things such as <code>tls</code> keys and certs, this is also where you will go.</p>
+<p>All of the basic information you require to create a queue manager is now in place (you can also choose to switch to the <code>yaml</code> view if you are interested in looking at what is populated for a basic deployment. Click <strong><em>Create</em></strong></p>
+<p><img alt="qmgr-create" src="./MQ - Client Engineering - Integration Guild_files/05-qmgr-create.png" style="height: auto;width: 70%;"></p>
+<p>You are taken back to the Integration Instances view, where you will see the queue manager as <code>pending</code>.</p>
+<p><img alt="int-instances" src="./MQ - Client Engineering - Integration Guild_files/06-int-instances.png" style="height: auto;width: 90%;"></p>
+<p>Return to the OpenShift Console to <strong><em>Installed Operators</em></strong></p>
+<p>Select the <strong><em>tools</em></strong> project and the IBM MQ operator.</p>
+<p><img alt="mq-operator" src="./MQ - Client Engineering - Integration Guild_files/07-mq-operator.png" style="height: auto;width: 90%;"></p>
+<p>Select the <strong><em>Queue Manager</em></strong> tab and wait until you see the status as running. </p>
+<div class="admonition notet">
+<p class="admonition-title">Notet</p>
+<p>This should not take very long and the queue manager may already be running by the time you get there.</p>
+</div>
+<p><img alt="qmgr-tab" src="./MQ - Client Engineering - Integration Guild_files/08-qmgr-tab.png" style="height: auto;width: 90%;"></p>
+<p>Now that the queue manager is running go back to the Platform UI. Select the new queue manager in the Messaging tile.</p>
+<p><img alt="select-qmgr" src="./MQ - Client Engineering - Integration Guild_files/09-select-qmgr.png" style="height: auto;width: 50%;"></p>
+<p>This will open up the MQ Console</p>
+<h2 id="explore-the-mq-console">Explore the MQ Console<a class="headerlink" href="http://localhost:8000/learning/tech-jam/materials/mq/#explore-the-mq-console" title="Permanent link">¶</a></h2>
+<p><img alt="manage-qs" src="./MQ - Client Engineering - Integration Guild_files/10-manage-qs.png" style="height: auto;width: 80%;"></p>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>If the console does not open correctly, it may be that the web console is not yet ready.  Try the following:
+Go to the OpenShift Console and find the MQ pod</p>
+<p><img alt="pods" src="./MQ - Client Engineering - Integration Guild_files/11-pods.png" style="height: auto;width: 80%;"></p>
+<p>Go to the logs (for anyone who is likely to be performing any MQ troubleshooting, this is the log that shows any MQ errors if you ever need to find them).</p>
+<p><img alt="logs" src="./MQ - Client Engineering - Integration Guild_files/12-logs.png" style="height: auto;width: 60%;"></p>
+<p>Check for the <code>web server started</code> message. If the web server is started, go back to the Platform UI and try refreshing the screen.</p>
+<p><img alt="web-server-started" src="./MQ - Client Engineering - Integration Guild_files/13-web-server-started.png" style="height: auto;width: 90%;"></p>
+</div>
+<p>You now need to make some changes to the queue manager configuration. As mentioned previously, this is typically done via a config map during queue manager creation, but this gives you the additional opportunity to explore the MQ Console.</p>
+<p>Given that you simply testing a basic queue manager, turn off all of the security related items that might hold you up. </p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This is NOT a recommended practice - MQ security can be very granular but also wide-ranging, it is recommended that you "start as you mean to continue", which means for a real customer situation ensure that, wherever possible, you set up all the MQ security that is required as part of the queue manager creation</p>
+</div>
+<p>Click on <strong><em>View Configuration</em></strong></p>
+<p><img alt="view-details" src="./MQ - Client Engineering - Integration Guild_files/14-view-details.png" style="height: auto;width: 80%;"></p>
+<p>You are shown all properties for the queue manager (for those of you not familiar with MQ - there are many!)</p>
+<p>Next click on <strong>Edit</strong></p>
+<p><img alt="edit" src="./MQ - Client Engineering - Integration Guild_files/15-edit.png" style="height: auto;width: 80%;"></p>
+<p>We will first disable the channel authentication records (in short, channel authentication sets the rules as to who can and cannot make an inbound channel connection to the queue manager).</p>
+<p>In the Communication section, find the <code>CHLAUTH</code> records and using the dropdown list, select <strong>Disabled</strong>.</p>
+<p><img alt="communication" src="./MQ - Client Engineering - Integration Guild_files/16-communication.png" style="height: auto;width: 80%;"></p>
+<p>Next remove the connection authentication (in short, this challenges connecting client applications to provide credentials and then authenticate those credentials with a repository).</p>
+<p>In the extended section, scroll down to <strong>Connection authentication</strong> and remove the entry (just backspace it all out).</p>
+<p><img alt="cluster" src="./MQ - Client Engineering - Integration Guild_files/17-cluster.png" style="height: auto;width: 70%;"></p>
+<p>Save the changes to the queue manager configuration.</p>
+<p>Next, in the Actions box, refresh the <strong>authentication service</strong>, then refresh <strong>connection authentication</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For those familiar with MQ, all of this can just as easily be achieved using the terminal window of the MQ pod and <code>runmqsc</code>.</p>
+</div>
+<p><img alt="refresh" src="./MQ - Client Engineering - Integration Guild_files/18-refresh.png" style="height: auto;width: 40%;"></p>
+<p>Finally, we need to create a queue for our message testing.</p>
+<p>Go back to the main queue manager page.</p>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>Follow the breadcrumb trail at the top of the console screen if you get lost.</p>
+</div>
+<p>You will see a list of queues (probably only one queue starting with <code>AMQ</code>), click <strong><em>Create</em></strong> to create a new queue.</p>
+<p><img alt="create-new-q" src="./MQ - Client Engineering - Integration Guild_files/19-create-new-q.png" style="height: auto;width: 90%;"></p>
+<p>Select <strong><em>Local</em></strong> as the queue type.</p>
+<p><img alt="local-q" src="./MQ - Client Engineering - Integration Guild_files/20-local-q.png" style="height: auto;width: 30%;"></p>
+<p>Select a name for the queue (such as <code>TEST</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The queue is enabled for both put and get by default.  If you wish to change this or any other queue attribute, you can use the Custom Create option.</p>
+</div>
+<p>Click <strong><em>Create</em></strong></p>
+<p><img alt="local-q" src="./MQ - Client Engineering - Integration Guild_files/20-create-a-q.png" style="height: auto;width: 70%;"></p>
+<p>We now have the queue manager ready for us to try a test to ensure we can put and get messages.</p>
+<h2 id="test-message-put-and-get">Test message put and get<a class="headerlink" href="http://localhost:8000/learning/tech-jam/materials/mq/#test-message-put-and-get" title="Permanent link">¶</a></h2>
+<p>For this part of the lab we will be using some of the sample programs that are delivered with MQ. We will put a message on a queue both in "binding mode" (ie: via a direct connection to the queue manager) and "client mode" (ie: via an mq client connection).</p>
+<p>Go to the Openshift Console and back to the mq pod</p>
+<p>Open the terminal window. The first test we will run is using a program called <strong><em>amqsput</em></strong>. This is a sample program that allows you to connect to a queue manager and put message(s) on to a named queue. We do not need to put a queue manager name as a parameter as the program will connect to the default queue manager.</p>
+<p>Do this as follows:</p>
+<div class="highlight"><pre id="__code_1"><span></span><button class="md-clipboard md-icon" title="Copy to clipboard" data-clipboard-target="#__code_1 &gt; code"></button><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-0-1"></a>Navigate to /opt/mqm/samp/bin
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-0-2"></a>./amqsput TEST
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-0-3"></a>Enter a message <span class="k">for</span> the queue <span class="o">(</span>put as many as you like by simply hitting enter after each message<span class="o">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-0-4"></a>Hit enter twice to finish
+</code></pre></div>
+<p><img width="503" alt="image" src="./MQ - Client Engineering - Integration Guild_files/3e68ef00-fedb-11ec-8615-4453e2fd0d5b">
+<img alt="create-test" src="./MQ - Client Engineering - Integration Guild_files/21-create-test.png" style="height: auto;width: 600px;"></p>
+<p>The next test we will run will put a message on a queue using an mq client connection. In this case we need to set an environment variable to identify the queue manager (as you would find in a CCDT).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-1"></a>A note on how to connect to a queue manager from inside or outside of the cluster.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-2"></a>The hostname used for the MQ traffic within the cluster takes the form of:
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-3"></a>    &lt;service&gt;.&lt;namespace&gt;.svc
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-4"></a>From outside the cluster, the hostname can be found in the route
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-5"></a>Internally you would use port 1414 for the listener
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-6"></a>Externally you would use port 443
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-8"></a>So, for our test, the hostname is as follows:
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-1-9"></a>  quickstart-cp4i-ibm-mq.tools.svc(1414)
+</code></pre></div>
+<p>Do this as follows:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-1"></a>Navigate to /opt/mqm/samp/bin (if not already there)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-2"></a>Set the MQSERVER variable - this takes the form of &lt;CHANNEL NAME&gt;/TCP/&lt;hostname&gt;&lt;port&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-4"></a>export MQSERVER='SYSTEM.DEF.SVRCONN/TCP/quickstart-cp4i-ibm-mq.tools.svc(1414)'
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-6"></a>./amqsputc TEST QUICKSTART
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-7"></a>Enter a message for the queue (put as many as you like by simply hitting enter after each message)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-2-8"></a>Hit enter twice to finish
+</code></pre></div><p></p>
+<p><img width="907" alt="image" src="./MQ - Client Engineering - Integration Guild_files/488aed80-fedb-11ec-8305-948c07b8cb49">
+<img alt="connecting-to-q" src="./MQ - Client Engineering - Integration Guild_files/22-connecting-to-q.png" style="height: auto;width: 600px;"></p>
+<p>Now go back to the MQ Console to check that the messages are there as expected</p>
+<p>If you have put 2 messages on using the tools there will be 2 messages on the TEST queue (if not, try refreshing the display)</p>
+<p><img width="1044" alt="image" src="./MQ - Client Engineering - Integration Guild_files/53458280-fedb-11ec-90c9-253213861be3">
+<img alt="enter-msg" src="./MQ - Client Engineering - Integration Guild_files/23-enter-msg.png" style="height: auto;width: 600px;"></p>
+<p>Click on the TEST queue to see the messages, then click on one of the messages to see the message content.</p>
+<p><img width="1627" alt="image" src="./MQ - Client Engineering - Integration Guild_files/5d678100-fedb-11ec-8c4a-74d241ffe53c">
+<img alt="view-q" src="./MQ - Client Engineering - Integration Guild_files/24-view-q.png" style="height: auto;width: 600px;"></p>
+<p>Now we move on to creating the queue manager and its' artefacts for the demo. We will use the provided scripts for expediency. We would encourage you to take a look at each of the scripts before you use them to understand what is being created by them.</p>
+<h2 id="create-configmap-for-demo-queue-manager">Create ConfigMap for demo queue manager<a class="headerlink" href="http://localhost:8000/learning/tech-jam/materials/mq/#create-configmap-for-demo-queue-manager" title="Permanent link">¶</a></h2>
+<p>We assume that you are familiar with the concept of a ConfigMap for storing non-sensitive configuration data (if the contents is sensitive, you should use a secret instead). In the case of MQ, the ConfigMap is used to provide mqsc commands and/or qm.ini overrides.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-1"></a>apiVersion: v1
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-2"></a>kind: ConfigMap
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-3"></a>metadata:
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-4"></a>  name: mq-demo-mqsc
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-5"></a>  namespace: tools
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-6"></a>data:
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-7"></a>  mq-demo-resources.mqsc: |
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-8"></a>    ALTER QMGR CHLAUTH (DISABLED)
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-9"></a>    ALTER AUTHINFO(SYSTEM.DEFAULT.AUTHINFO.IDPWOS)  AUTHTYPE(IDPWOS) CHCKCLNT(NONE)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-10"></a>    REFRESH SECURITY TYPE(CONNAUTH)
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-11"></a>    DEFINE CHANNEL(ACE.TO.MQ) CHLTYPE(SVRCONN) TRPTYPE(TCP) MCAUSER('mqm') REPLACE
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-12"></a>    DEFINE CHANNEL(ES.TO.MQ) CHLTYPE(SVRCONN) TRPTYPE(TCP) MCAUSER('mqm') REPLACE
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-13"></a>    DEFINE CHANNEL(MQ.TO.ES) CHLTYPE(SVRCONN) TRPTYPE(TCP) MCAUSER('mqm') REPLACE
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-14"></a>    DEFINE CHANNEL(CP4I.ADMIN.SVRCONN) CHLTYPE(SVRCONN) TRPTYPE(TCP) MCAUSER('mqm') SSLCAUTH(OPTIONAL) SSLCIPH(ECDHE_RSA_AES_128_CBC_SHA256) REPLACE
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-15"></a>    DEFINE QLOCAL(CP4I.DEMO.ERROR.Q) DEFPSIST(YES) REPLACE
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-16"></a>    DEFINE QLOCAL(CP4I.DEMO.STREAM.Q) DEFPSIST(YES) REPLACE
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-17"></a>    DEFINE QLOCAL(CP4I.DEMO.IN.Q) DEFPSIST(YES) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-18"></a>    DEFINE QLOCAL(CP4I.DEMO.OUT.Q) DEFPSIST(YES) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-19"></a>    DEFINE QLOCAL(CP4I.DEMO.ES.TO.MQ) DEFPSIST(YES) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-20"></a>    DEFINE QLOCAL(CP4I.DEMO.MQ.TO.ES) DEFPSIST(YES) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-21"></a>    DEFINE QLOCAL(CP4I.DEMO.FILE.TO.MQ) DEFPSIST(YES) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-22"></a>    DEFINE QLOCAL(CP4I.DEMO.MQ.TO.FILE) DEFPSIST(YES) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-23"></a>    DEFINE QLOCAL(CP4I.DEMO.API.Q) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) STREAMQ(CP4I.DEMO.STREAM.Q) REPLACE
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-24"></a>    DEFINE QLOCAL(CP4I.DEMO.REQUEST.Q) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-25"></a>    DEFINE QLOCAL(CP4I.DEMO.EVENT.Q) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-26"></a>    DEFINE QLOCAL(CP4I.DEMO.TEMP.Q) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-3-27"></a>    DEFINE QLOCAL(CP4I.DEMO.BACKEND.Q) BOQNAME(CP4I.DEMO.ERROR.Q) BOTHRESH(1) REPLACE
+</code></pre></div>
+<p>If you review the ConfigMap you will notice we have again disabled security for simplicity, but more importantly we have enabled mq streaming to highlight this new feature during the demonstration. If you have any questions regarding what any of the mqsc command are doing, please feel free to ask one of the instructors.</p>
+<p>There are multiple ways to create the components of the demo, each of which you will try during the labs. In this case we will use the Openshift Console to create the ConfigMap.</p>
+<p>To apply the yaml, log on to the console if you are not already there.</p>
+<p>Click on the little plus sign in the top right corner of the screen to import the yaml</p>
+<p><img width="531" alt="image" src="./MQ - Client Engineering - Integration Guild_files/707a5100-fedb-11ec-9d7a-ef26f3e45c8a">
+<img alt="view-msg" src="./MQ - Client Engineering - Integration Guild_files/25-view-msg.png" style="height: auto;width: 600px;"></p>
+<p>Copy and paste the yaml from above in to the Import YAML window and press <strong><em>Create</em></strong></p>
+<p><img width="1222" alt="image" src="./MQ - Client Engineering - Integration Guild_files/76703200-fedb-11ec-9b32-50f13f327f1b">
+<img alt="import-yaml" src="./MQ - Client Engineering - Integration Guild_files/26-import-yaml.png" style="height: auto;width: 600px;"></p>
+<p>Go to ConfigMaps (they are  in the Workloads folder if you cannot find them) and check that the mq-demo-mqsc ConfigMap exists</p>
+<p><img width="658" alt="image" src="./MQ - Client Engineering - Integration Guild_files/7c661300-fedb-11ec-98f1-9c9816e0b4be">
+<img alt="create" src="./MQ - Client Engineering - Integration Guild_files/27-create.png" style="height: auto;width: 600px;"></p>
+<p>Open the ConfigMap and check that it is as you expected.</p>
+<p><img width="1234" alt="image" src="./MQ - Client Engineering - Integration Guild_files/85ef7b00-fedb-11ec-8da7-fb88329157da">
+<img alt="config-map" src="./MQ - Client Engineering - Integration Guild_files/28-config-map.png" style="height: auto;width: 600px;"></p>
+<p>We now have the config ready to be plugged into our demo queue manager.</p>
+<h2 id="create-native-ha-queue-manager-for-demo">Create Native HA queue manager for demo<a class="headerlink" href="http://localhost:8000/learning/tech-jam/materials/mq/#create-native-ha-queue-manager-for-demo" title="Permanent link">¶</a></h2>
+<p>For the demo, we will be deploying a NativeHA queue manager. If you are not familiar with a NativeHA queue manager is, basically it is the "Rolls Royce" of MQ high availability solutions, which is built in to CP4I.</p>
+<p>A Native HA configuration provides a highly available queue manager where the recoverable MQ data (for example, the messages)  are replicated across multiple sets of storage, preventing loss from storage failures. The queue manager consists of multiple running instances, one is the leader, the others are ready to quickly take over in the event of a failure, maximizing access to the queue manager and its messages.</p>
+<p>This is a relatively simple description of how it works, you can read about it in much more detail in the Knowledge Center.
+Let's move on to the yaml to create the queue manager.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-1"></a>apiVersion: mq.ibm.com/v1beta1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-2"></a>kind: QueueManager
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-3"></a>metadata:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-4"></a>  name: qmgr-demo
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-5"></a>  namespace: tools
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-6"></a>spec:
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-7"></a>  annotations:
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-8"></a>    productMetric: FREE
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-9"></a>  license:
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-10"></a>    accept: true
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-11"></a>    license: L-RJON-CD3JKX
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-12"></a>    use: NonProduction
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-13"></a>  queueManager:
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-14"></a>    name: QMGRDEMO
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-15"></a>    resources:
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-16"></a>      limits:
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-17"></a>        cpu: 500m
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-18"></a>      requests:
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-19"></a>        cpu: 500m
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-20"></a>    storage:
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-21"></a>      queueManager:
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-22"></a>        type: persistent-claim
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-23"></a>      defaultClass: ibmc-block-gold
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-24"></a>    availability:
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-25"></a>      type: NativeHA
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-26"></a>    mqsc:
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-27"></a>      - configMap:
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-28"></a>          name: mq-demo-mqsc
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-29"></a>          items:
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-30"></a>            - mq-demo-resources.mqsc
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-31"></a>  template:
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-32"></a>    pod:
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-33"></a>      containers:
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-34"></a>        - env:
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-35"></a>            - name: MQSNOAUT
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-36"></a>              value: 'yes'
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-37"></a>          name: qmgr
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-38"></a>  version: 9.3.0.0-r1
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-39"></a>  web:
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-40"></a>    enabled: true
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-41"></a>  tracing:
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-42"></a>    enabled: true
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-4-43"></a>    namespace: tools
+</code></pre></div>
+<p>Note the yaml file shows how to use annotations to let License Service know this is a Queue Manager that is used by ACE and therefore it won't consume VPCs. Additionally, the instance uses Native HA to show this functionality during the demonstration. Additionally the deployment enables tracing, but since we are using the same namespace there is no need to register again with Operations Dashboard. You only need to register once per namespace.</p>
+<p>Using the same method that we used to create the ConfigMap, apply the yaml to create the queue manager.
+Go and take a look at the pods for the queue manager
+You will note that there are three of them.</p>
+<p><img width="1149" alt="image" src="./MQ - Client Engineering - Integration Guild_files/9142a680-fedb-11ec-9626-df43b564c1f2">
+<img alt="mqsc" src="./MQ - Client Engineering - Integration Guild_files/29-mqsc.png" style="height: auto;width: 600px;"></p>
+<p>Wait until all of the queue manager pods are active (this may take a short time, while the storage is being provisioned). </p>
+<p><img width="666" alt="image" src="./MQ - Client Engineering - Integration Guild_files/9869b480-fedb-11ec-9111-bfc9f2688db3">
+<img alt="pods" src="./MQ - Client Engineering - Integration Guild_files/30-pods.png" style="height: auto;width: 600px;"></p>
+<p>Now, you may be wondering why,if there is only ever one queue manager pod active at the one time - why two of the pods are showing as having 2/3 container active? This is due to the Ops Dashboard tracing sidecar containers - don't panic! The active queue manager pod is the one with 3/3 active containers.</p>
+<p>If you are feeling adventurous (and have time) and want to test how the NativeHA works: </p>
+<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-5-1"></a>Put a message on a queue (using your favourite method)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-5-2"></a>Delete the active MQ pod
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-5-3"></a>Watch the takeover by one of the other pods
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-5-4"></a>Log back into the MQ console (or any of your other favourite tools) and check that the message is still on the queue 
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-5-5"></a>(where you put it prior to deleting the pod)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="http://localhost:8000/learning/tech-jam/materials/mq/#__codelineno-5-6"></a>Check the status of all three pods again.
+</code></pre></div>
+<strong><em>You have completed the MQ Lab</em></strong><p></p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">July 9, 2022 11:38:43</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">July 7, 2022 04:01:21</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="http://localhost:8000/learning/tech-jam/materials/mq/#" class="md-top md-icon" data-md-component="top" hidden="" style="top: 124px;" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Footer -->
+<footer class="md-footer">
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+            <div class="md-footer-column">
+                <div class="md-footer-text">Styling and customization credit: <a href="https://cloudnativetoolkit.dev/">Cloud Native Toolkit</a></div>
+                <div class="md-footer-text">Site licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div>
+            </div>
+            <div class="md-footer-column">
+                <div class="md-footer-text">Have questions? open an issue on <a href="https://github.ibm.com/skol/ce-int-guild/issues/new/choose">GitHub</a>.</div>
+
+                <!-- Copyright and theme information -->
+                
+                <div class="md-footer-text">
+                    Copyright © 2022 IBM Client Engineering
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+  
+      <script src="./MQ - Client Engineering - Integration Guild_files/bundle.6c7ad80a.min.js"></script>
+      
+    
+
+
+  <script>
+var livereload = function(epoch, requestId) {
+    var req = new XMLHttpRequest();
+    req.onloadend = function() {
+        if (parseFloat(this.responseText) > epoch) {
+            location.reload();
+            return;
+        }
+        var launchNext = livereload.bind(this, epoch, requestId);
+        if (this.status === 200) {
+            launchNext();
+        } else {
+            setTimeout(launchNext, 3000);
+        }
+    };
+    req.open("GET", "/livereload/" + epoch + "/" + requestId);
+    req.send();
+
+    console.log('Enabled live reload');
+}
+livereload(77073082, 77076906);
+</script>
+</body></html>

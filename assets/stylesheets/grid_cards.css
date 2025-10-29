@@ -1,0 +1,160 @@
+/* Grid CSS */
+.page-container {
+    max-width: 61rem;
+    width: 66vw;
+    padding-top: 20px;
+}
+
+.grid-container {
+    display: grid;
+    align-items: end;
+    justify-items: center;
+    column-gap: 70px;
+}
+
+/* Narrow */
+@media (max-width: 86.98rem) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    #page-description {
+        grid-row: 1;
+    }
+
+    #intro-video {
+        grid-row: 2;
+    }
+}
+
+/* Wide */
+@media (min-width: 87rem) {
+    .grid-container {
+        grid-template-columns: 4fr 6fr;
+    }
+
+    #page-description {
+        grid-row: 1;
+    }
+
+    #intro-video {
+        grid-row: 1;
+    }
+}
+
+.card-flex-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-anchor {
+    position: relative;
+    flex: 350px;
+}
+
+body[data-md-color-primary="black"] .link-out-icon {
+    filter: invert(100%);
+}
+
+body[data-md-color-primary="white"] .link-out-icon {
+    /* Nothing here. The icon's default color is black. */
+}
+
+.link-out-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.card-container {
+    height: 100%;
+    background-color: var(--carbon-bg-active);
+}
+
+    /* change color on hover for each card */
+    .card-container:hover {
+        /* background-color: #535353; */
+        background-color: var(--carbon-accent-hov-fg-color);
+        transition: background-color 0.5s;
+    }
+
+.card {
+    display: grid;
+    grid-template-rows: 90px max-content max-content 1fr;
+    height: 100%;
+    /* Add space between the border and the content */
+    padding: 8px;
+    color: var(--carbon-fg-active-color);
+}
+
+
+.ai-label {
+    position: absolute;
+    right: 0;
+}
+
+/* Style div elements that have class equal to tag */
+.tag {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--gray-0);
+    background-color: var(--accent);
+	max-height: 30px;
+}
+
+.card-icon-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+	position: relative;
+	bottom: 0px;
+	
+}
+
+.name {
+    font-size: 22px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.card-details p {
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: bold;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    padding: 0px 12px 0px 12px;
+    min-height: 100px;
+}
+
+.card-details,
+.card-tags,
+.card-icon-footer {
+    padding: 2px 12px 4px 4px;
+}
+
+.card-tags {
+    font-weight: normal;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+nav.md-nav.md-nav--primary > .md-nav__list > .md-nav__item > label.md-nav__link {
+    font-weight: bold;
+}
+
+.grid.cards>ul>li {
+	background-color: var(--carbon-bg-active);
+}	
+
+.tag-footer-containter {
+	display: grid;
+	position: absolute;
+}

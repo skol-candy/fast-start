@@ -1,0 +1,34 @@
+/* BEGIN table styling */
+.md-typeset__table {
+    width: 100%;
+}
+
+.md-typeset__table {
+    padding: 0;
+}
+
+table {
+    display: table !important;
+    padding-left: unset;
+    padding-right: unset;
+}
+
+.md-typeset table:not([class]) {
+    background-color: var(--carbon-bg-active);
+    border: none;
+    display: inline-table;
+}
+
+    .md-typeset table:not([class]) td,
+    .md-typeset table:not([class]) th {
+        padding: 0.75em 1.125em;
+    }
+
+    .md-typeset table:not([class]) thead tr:nth-child(1) {
+        background-color: var(--carbon-bg-inactive);
+    }
+
+th:empty {
+    display: none;
+}
+/* END table styling */
