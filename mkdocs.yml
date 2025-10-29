@@ -199,3 +199,10 @@ nav:
   - AMA Installation: ama-app-mod/ama-install.md
   - Scanning: ama-app-mod/ama-run-scan.md
   - Scan Results: ama-app-mod/ama-scan-results.md
+- App Dev & Mod WCA:
+  - wca-app-dev-mod/index.md
+  - Lab 1 - Explain: wca-app-dev-mod/lab-1-explain.md
+  - Lab 2 - Modernize: wca-app-dev-mod/lab-2-modernize.md
+  - Lab 3 - Upgrade Java: wca-app-dev-mod/lab-3-upgrade.md
+  - Lab 4 - Unit Test: wca-app-dev-mod/lab-4-unit-test.md
+  - Lab 5 - General Programming: wca-app-dev-mod/lab-5-general-programming.md
