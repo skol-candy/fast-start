@@ -3,9 +3,9 @@ hide:
     - toc
 ---
 
-# Welcome to the Application Modernization with AMA Fast-Start
+# Welcome to the Application Modernization Fast-Start
 
-## Overview
+This set of labs focuses on processes used to modernize applications from traditional WebSphere Application Server (tWAS) to WebSphere Liberty.
 
 ### Liberty
 

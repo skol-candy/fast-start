@@ -1,9 +1,9 @@
 ---
-Title: tWAS Modernization
+Title: tWAS Modernization with AMA
     - toc
 ---
 
-# tWAS Application Modernization
+# tWAS Application Modernization with AMA
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ This demo provides fundamental hands-on experience with modernizing existing Jav
 !!! Note "Note on TA and AMA"
     Application Modernization Accelerator (AMA) is the next generation of Transformation Advisor (TA).  AMA is provided as part of the EAR JSphere Suite offering.  TA has been widely available for many years and most recently as part of Cloud Pak for Applications.
 
-### Mod Resorts Application
+## Mod Resorts Application
 
 Mod Resorts app is a WebSphere application showing the weather in various locations. This app is initially developed for WebSphere traditional. In the demo it will be moved to Liberty in a container and deployed to OCP.  You can view the running version of this application from your bootcamp environment by navigating to **localhost:9080/resorts**
 
