@@ -1,9 +1,9 @@
 ---
-Title: App Mod with AMA
+Title: tWAS Modernization
     - toc
 ---
 
-# Application Modernization with AMA
+# tWAS Application Modernization
 
 ## Prerequisites
 
