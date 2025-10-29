@@ -1,0 +1,28 @@
+apiVersion: automation.cio/v1alpha1
+kind: RepositoryConfig
+ealImapNumber: EAL-013626
+build:
+  strategy: container-release
+  pipeline: python-v39-poetry-ui-container-image
+  version: v1
+  config:
+    cirrus-project-name: ce-technology-patterns-non-prod
+    cirrus-pipeline-name: skol-lightspeed-template
+    distribution-directory: site
+    service-port: '8080'
+    cirrus-api-username: encrypted:v1:AAABjKl+8aXJeLUo17o+sZvuoFAd5clwnnlQiYWUUDJDuKpG3MvApjzsc+kjWqP3JPyq6yJlBWDeRNIqO3brQwMxO48tBB4P1YrI8yCUqVqzR7veM2UdFiWnUjNDH6q9zMm1YzKLHaEAU3wMfXzaChPDX0n4CBtSFbTsOTLBluyIMLfZO6/xfwebBPdS9a3ZPOwq
+    cirrus-api-password: encrypted:v1:AAABjKl+8aVyi09oVwqK9GW71lXxniofzlebjwDPXzGI/gYTJ8U6MkL3rwN+wUR6AMYeh8JeaKQ2Or3H2AwbyQNuWhct2RdetKPtGFL8C7CTEsNeKtfuQRD/AcVgqCl4TgoktygoqdF8vGyLlMo/YljeFfMDa0aKXsPOuyCEMCji0wQORm6tRR2htx/jYNHCGuzJRLe/kAIdXjQJPVh3HBVSeoA7Uhi/XPWmv+M+5w==
+    cirrus-region: us-east1
+    deploy-verification-memory-request: "q512mb"
+    private-dependencies: "encrypted:v1:AAABjKl+8aUYl999bQV/bfa65EhbYAALKnC1ZUrH4zb/Rxg+Dnabd82kbTOqMq5lra7mVTa76qTF5eAFpZAwvDAfrczne63JfIvgpDJoPIPiPx+pgN3rmHv+fdHua/afjQsWSemLmnNv1ypkVphXrhIxnS0zLWeZqEYtEwR/QTYKxt+vXX+PjkI2Os1wxEOIw5r0w3c9YxmRKMxkral1XbK3jxLFcDkVhiEAv4jwgdAxhS5VnDyOKZD+fMzkbKQEZbsI+OjpEuIc28vJCiRwYpOw6CrZlVGn0mRfZWRUpouIzSP5AX/ybU8NafOzE9GBSZKnhTH6tOpFbr/cr92uhc+0zksMTyMLd6at0l4B92CYMelUsYyVpScteMtPIa9U2F6mAHMwM1llf9h6mOjwNrUb"
+release:
+  environments:
+    - name: test
+      cirrus-project-name: ce-technology-patterns-non-prod
+      deploy-verification-memory-request: "q512mb"
+    - name: pre-production
+      cirrus-project-name: ce-technology-patterns-non-prod
+      deploy-verification-memory-request: "q512mb"
+    - name: production
+      cirrus-project-name: ce-technology-patterns-non-prod
+      deploy-verification-memory-request: "q512mb"

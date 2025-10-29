@@ -1,0 +1,3 @@
+export WATSONX_API_KEY="4-QzPViWEpMKbtfPrTNKfjGeV1kdOib16ihBlTXPPudB"
+export WATSONX_API_PROJECT_ID="f7436af8-9dbd-4628-a94a-9b1094a63cf3"
+export WATSONX_API_URL="https://us-south.ml.cloud.ibm.com"

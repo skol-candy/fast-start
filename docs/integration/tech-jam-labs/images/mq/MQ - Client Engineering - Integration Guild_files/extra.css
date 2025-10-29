@@ -1,0 +1,408 @@
+
+:root {
+  --md-default-bg-color: #f4f4f4;
+}
+:root > * {
+    --md-accent-fg-color: #030303;
+}
+.md-nav {
+    font-size: .8rem;
+    line-height: 1.4;
+}
+.md-grid {
+    max-width: initial;
+}
+li .md-nav__item--active {
+    background-color: #e0e0e0;
+}
+
+.md-nav__item .md-nav__link--active {
+    color: #161616;
+    font-weight: 600;
+}
+.md-clipboard {
+    color: #161616;
+}
+
+.md-tabs__link {
+    font-size: .9rem;
+}
+
+
+div.col-md-9 h1:first-of-type {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 300;
+}
+
+div.col-md-9 h1:first-of-type .headerlink {
+    display: none;
+}
+
+div.md-source-file {
+  margin-left: 1rem;
+}
+
+code.no-highlight {
+    color: black;
+}
+
+
+/* Definition List styles */
+
+dd {
+    padding-left: 20px;
+}
+
+
+/* Center images*/
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.md-content, .md-sidebar__scrollwrap {
+    padding-bottom: 6rem;
+}
+
+.md-header__inner {
+    padding: .3rem .2rem;
+}
+
+span.md-ellipsis {
+    font-weight: bold;
+}
+
+.homepage {
+    font-size: 1.2rem;
+}
+
+.md-footer-meta__inner {
+    justify-content: space-evenly;
+}
+
+.md-footer-column {
+    /* We first create a flex layout context */
+    display: flex;
+
+    /* Then we define the flow direction
+       and if we allow the items to wrap
+     * Remember this is the same as:
+     * flex-direction: row;
+     * flex-wrap: wrap;
+     */
+    flex-flow: column wrap;
+
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+
+    padding: 5px 5px;
+}
+
+.md-footer-text {
+    font-size: .7rem;
+    padding: 2px 0;
+}
+
+/* top git source icon */
+.md-header__source {
+    width: 2rem;
+  }
+
+/* search box */
+.md-search__inner {
+width: 8rem;
+}
+
+/* center colum white */
+.md-content {
+    background-color: #fff;
+}
+
+/* adjust center column */
+.md-main__inner {
+    margin-top: 0px;
+}
+
+/* top banner home page */
+[data-md-color-primary=black] .md-header {
+    background-color: #161616;
+}
+
+/* tabs border */
+.md-typeset .tabbed-set>label {
+    border-bottom: .1rem solid #4051b5;
+}
+
+/* headings */
+.md-typeset h1, .md-typeset h2 {
+    font-weight: 500;
+}
+
+/* Custom icon for admonition - new admonition type is called "calendar"   */
+:root {
+  --md-admonition-icon--calendar: url(../images/icons/calendar.svg) /* the starting directory is /docs/css  */
+}
+.md-typeset .admonition.calendar,
+.md-typeset details.calendar {
+  border-color: rgb(13, 13, 246);
+}
+.md-typeset .calendar > .admonition-title,
+.md-typeset .calendar > summary {
+  background-color: rgba(13, 13, 246, 0.1);
+  border-color: rgb(13, 13, 246);
+}
+.md-typeset .calendar > .admonition-title::before,
+.md-typeset .calendar > summary::before {
+  background-color: rgb(13, 13, 246);
+  -webkit-mask-image: var(--md-admonition-icon--calendar);
+          mask-image: var(--md-admonition-icon--calendar);
+}
+
+/*  From home.css - needed if not using the override template for the home page */
+
+.home-hero {
+  max-width: 100%;
+/*  height: 10vh; */
+  max-height: 560px;
+  width: 100%;
+  position: relative;
+}
+
+.home-hero-image {
+  height: 100px;
+  background-image: url(../images/site-banner.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.home-hero-text {
+/*  bottom: 0; */
+  position: absolute;
+}
+
+.home-hero-text h1 {
+  color: #fff;
+  background: none;
+  bottom: 0;
+  font-size: 3.6em;
+  padding-left: 20px;
+  margin-bottom: 10px
+}
+
+.home-description {
+  max-width: 100%;
+  width: 100%;
+  background: #030303;
+  color: white;
+}
+
+.home-purpose {
+  max-width: 100%;
+  width: 100%;
+  background: #061f80;
+  color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 1.6em;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  height: 100%;
+  font-family: IBM Plex Sans VF,Helvetica Neue,Arial,sans-serif;
+}
+
+.md-main__inner .md-content__inner,
+.md-sidebar--primary:not([hidden]) ~ .md-content > .md-content__inner {
+  margin: 0;
+  padding: 0;
+}
+
+.md-typeset img,
+.md-typeset svg {
+  max-width: initial;
+}
+
+.md-content__inner::before {
+  height: 0;
+}
+
+.home-page {
+  margin:1rem;
+}
+
+
+
+aside, body, input {
+  font-feature-settings: "kern","liga";
+  color: var(--md-typeset-color);
+  font-family: var(--md-text-font-family);
+}
+
+.md-typeset .mdx-author {
+  display: flex;
+  font-size: .68rem;
+}
+
+.md-typeset .mdx-author img {
+  border-radius: 100%;
+  height: 2rem;
+  margin-right: 10px;
+
+}
+
+.md-typeset .mdx-author p > span {
+  display: block;
+}
+
+/*  For creating "chips"  https://www.w3schools.com/howto/howto_css_contact_chips.asp */
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  margin-right: 10px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+/*  For creating "cards"  https://www.w3schools.com/howto/howto_css_cards.asp */
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 300px;
+  height: 325px;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img {
+  padding: 10px;
+  height: 115px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  text-align: center;
+}
+
+.cardset {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+
+.md-tags {
+  margin-top: .75em;
+}
+
+.tutorial-card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 300px;
+  height: 325px;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.tutorial-card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* On mouse-over, add a deeper shadow */
+.tutorial-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.tutorial-card .tutorial-content {
+  margin: 10px;
+}
+
+
+.lab-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: 325px;
+  margin-right: 5px;
+  text-align: center;
+  font-family: arial;
+  position: relative;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.lab-card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.lab-card button:hover {
+  opacity: 0.7;
+}

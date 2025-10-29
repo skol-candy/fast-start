@@ -1,0 +1,63 @@
+/* ==================== Carbon Colors ==================== */
+:root {
+    --gray-100: #161616;
+    --gray-90: #262626;
+    --gray-80: #393939;
+    --gray-70: #525252;
+    --gray-60: #6f6f6f;
+    --gray-20: #e0e0e0;
+    --gray-10: #f4f4f4;
+    --gray-0: #fff;
+    --accent: #0f62fe;
+  }
+  /* ==================== Light theme ==================== */
+  
+  [data-md-color-primary="white"] {
+    --md-default-bg-color: #FFFFFF; /* Default background color for light mode. */
+    --carbon-bg-active: #F1F1F1; /* Default background color for grid cards and tables light mode. */
+    --carbon-bg-inactive: var(--gray-20);
+    --carbon-fg-active-color: var(--gray-100);
+    --carbon-fg-inactive-color: var(--gray-80);
+    /* --md-code-bg-color: var(--gray-70);
+    --md-code-fg-color: var(--gray-0); */
+    
+    --svg-filter: invert(16%) sepia(0%) saturate(3176%) hue-rotate(316deg) brightness(92%) contrast(99%); /* Same as --gray-90 */
+  }
+  
+  [data-md-color-accent="black"] {
+    --md-accent-fg-color: var(--gray-20);
+    --md-accent-bg-color: var(--gray-0);
+    --carbon-accent-hov-fg-color: var(--gray-20);
+  }
+  
+  /* ==================== Dark theme ==================== */
+  
+  [data-md-color-scheme="slate"] {
+    --md-hue: 219;
+    --md-default-bg-color: #161616; /* Default background color for dark mode. */
+    /* --md-code-bg-color: var(--gray-0);
+    --md-code-fg-color: var(--gray-90); */
+    --svg-filter: invert(100%) sepia(0%) saturate(7394%) hue-rotate(238deg) brightness(90%) contrast(94%); /* Same as --gray-10 */
+  }
+  
+  [data-md-color-primary="black"] {
+    /* Background colors */
+    /* --carbon-bg-active: #262626;
+    --carbon-bg-inactive: #393939; */
+    --carbon-bg-active: var(--gray-80); /* Default background color for grid cards and tables dark mode. */
+    --carbon-bg-inactive: var(--gray-70);
+  
+    /* foreground colors */
+    --carbon-fg-active-color: var(--gray-10);
+    --carbon-fg-inactive-color: var(--gray-20);
+  }
+  
+  [data-md-color-accent="blue"] {
+    --md-accent-fg-color: var(--accent);
+    /* hover colors */
+    --carbon-accent-hov-fg-color: var(--gray-70);
+  }
+
+.svg-filter{
+  filter: var(--svg-filter);
+}

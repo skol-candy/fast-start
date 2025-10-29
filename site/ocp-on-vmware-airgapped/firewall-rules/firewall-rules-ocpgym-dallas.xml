@@ -1,0 +1,339 @@
+
+<filter>
+	<rule>
+		<id></id>
+		<tracker>1657061769</tracker>
+		<type>pass</type>
+		<interface>wan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<protocol>tcp</protocol>
+		<source>
+			<any></any>
+		</source>
+		<destination>
+			<network>(self)</network>
+			<port>22</port>
+		</destination>
+		<descr><![CDATA[SSH Access from IBM Cloud]]></descr>
+		<updated>
+			<time>1657061769</time>
+			<username><![CDATA[admin@192.168.252.2 (Local Database)]]></username>
+		</updated>
+		<created>
+			<time>1657061769</time>
+			<username><![CDATA[admin@192.168.252.2 (Local Database)]]></username>
+		</created>
+	</rule>
+	<rule>
+		<id></id>
+		<tracker>1650301631</tracker>
+		<type>pass</type>
+		<interface>wan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<protocol>icmp</protocol>
+		<icmptype>echoreq</icmptype>
+		<source>
+			<any></any>
+		</source>
+		<destination>
+			<network>(self)</network>
+		</destination>
+		<descr></descr>
+		<updated>
+			<time>1650301631</time>
+			<username><![CDATA[admin@192.168.252.2 (Local Database)]]></username>
+		</updated>
+		<created>
+			<time>1650301631</time>
+			<username><![CDATA[admin@192.168.252.2 (Local Database)]]></username>
+		</created>
+	</rule>
+	<rule>
+		<source>
+			<any></any>
+		</source>
+		<interface>wan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<protocol>tcp</protocol>
+		<destination>
+			<address>192.168.252.2</address>
+			<port>5900</port>
+		</destination>
+		<descr><![CDATA[NAT VNC for Bastion]]></descr>
+		<associated-rule-id>nat_625828106c58a2.68992194</associated-rule-id>
+		<tracker>1649944592</tracker>
+		<created>
+			<time>1649944592</time>
+			<username><![CDATA[NAT Port Forward]]></username>
+		</created>
+	</rule>
+	<rule>
+		<source>
+			<any></any>
+		</source>
+		<interface>wan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<protocol>tcp</protocol>
+		<destination>
+			<address>192.168.252.2</address>
+			<port>22</port>
+		</destination>
+		<descr><![CDATA[NAT SSH for Bastion]]></descr>
+		<associated-rule-id>nat_62582890c1b4d8.82829071</associated-rule-id>
+		<tracker>1649944720</tracker>
+		<created>
+			<time>1649944720</time>
+			<username><![CDATA[NAT Port Forward]]></username>
+		</created>
+	</rule>
+	<rule>
+		<source>
+			<any></any>
+		</source>
+		<interface>wan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<protocol>tcp</protocol>
+		<destination>
+			<address>192.168.252.2</address>
+			<port>3389</port>
+		</destination>
+		<descr><![CDATA[NAT RDP for Bastion]]></descr>
+		<associated-rule-id>nat_625828bfb1d3a2.37892269</associated-rule-id>
+		<tracker>1649944767</tracker>
+		<created>
+			<time>1649944767</time>
+			<username><![CDATA[NAT Port Forward]]></username>
+		</created>
+	</rule>
+	<rule>
+		<source>
+			<any></any>
+		</source>
+		<interface>wan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<protocol>tcp</protocol>
+		<destination>
+			<address>192.168.252.10</address>
+			<port>22</port>
+		</destination>
+		<descr><![CDATA[NAT SSH for OCP Installer]]></descr>
+		<associated-rule-id>nat_625f40f991ee42.86711168</associated-rule-id>
+		<tracker>1650409721</tracker>
+		<created>
+			<time>1650409721</time>
+			<username><![CDATA[NAT Port Forward]]></username>
+		</created>
+	</rule>
+	<rule>
+		<id></id>
+		<tracker>1670999999</tracker>
+		<type>pass</type>
+		<interface>wan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<source>
+			<any></any>
+		</source>
+		<destination>
+			<network>(self)</network>
+			<port>51820</port>
+		</destination>
+		<protocol>udp</protocol>
+		<descr><![CDATA[VPN Access]]></descr>
+	</rule>
+	<rule>
+		<id></id>
+		<tracker>1682322072</tracker>
+		<type>pass</type>
+		<interface>lan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<protocol>tcp</protocol>
+		<source>
+			<any></any>
+		</source>
+		<destination>
+			<address>vsphere_dallas</address>
+			<port>443</port>
+		</destination>
+		<descr><![CDATA[Allow LAN access to vSphere in Dallas]]></descr>
+		<created>
+			<time>1682322072</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</created>
+		<updated>
+			<time>1682322138</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</updated>
+	</rule>
+	<rule>
+		<id></id>
+		<tracker>1682149577</tracker>
+		<type>pass</type>
+		<interface>lan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<protocol>tcp/udp</protocol>
+		<source>
+			<any></any>
+		</source>
+		<destination>
+			<any></any>
+			<port>123</port>
+		</destination>
+		<descr><![CDATA[Allow LAN access to any NTP server]]></descr>
+		<created>
+			<time>1682149577</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</created>
+		<updated>
+			<time>1682265644</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</updated>
+	</rule>
+	<rule>
+		<id></id>
+		<tracker>1682148771</tracker>
+		<type>pass</type>
+		<interface>lan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<protocol>tcp/udp</protocol>
+		<source>
+			<any></any>
+		</source>
+		<destination>
+			<any></any>
+			<port>53</port>
+		</destination>
+		<descr><![CDATA[Allow LAN access to any DNS server]]></descr>
+		<created>
+			<time>1682148771</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</created>
+		<updated>
+			<time>1682265658</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</updated>
+	</rule>
+	<rule>
+		<id></id>
+		<tracker>1682145580</tracker>
+		<type>block</type>
+		<interface>lan</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<source>
+			<network>lan</network>
+		</source>
+		<destination>
+			<any></any>
+		</destination>
+		<descr><![CDATA[Block LAN access to any destination]]></descr>
+		<created>
+			<time>1682145580</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</created>
+		<updated>
+			<time>1682265776</time>
+			<username><![CDATA[admin@192.168.253.2 (Local Database)]]></username>
+		</updated>
+	</rule>
+	<rule>
+		<id></id>
+	</rule>
+	<rule>
+		<id></id>
+		<tracker>1657061706</tracker>
+		<type>pass</type>
+		<interface>opt1</interface>
+		<ipprotocol>inet</ipprotocol>
+		<tag></tag>
+		<tagged></tagged>
+		<max></max>
+		<max-src-nodes></max-src-nodes>
+		<max-src-conn></max-src-conn>
+		<max-src-states></max-src-states>
+		<statetimeout></statetimeout>
+		<statetype><![CDATA[keep state]]></statetype>
+		<os></os>
+		<source>
+			<any></any>
+		</source>
+		<destination>
+			<any></any>
+		</destination>
+		<descr></descr>
+		<updated>
+			<time>1657061706</time>
+			<username><![CDATA[admin@192.168.252.2 (Local Database)]]></username>
+		</updated>
+		<created>
+			<time>1657061706</time>
+			<username><![CDATA[admin@192.168.252.2 (Local Database)]]></username>
+		</created>
+	</rule>
+	<separator>
+		<wan></wan>
+		<opt1></opt1>
+		<lan></lan>
+	</separator>
+</filter>

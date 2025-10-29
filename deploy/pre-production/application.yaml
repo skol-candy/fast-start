@@ -1,0 +1,16 @@
+apiVersion: cirrus.ibm.com/v1alpha1
+kind: Application
+metadata:
+  name: lightspeed-template-pre-prod 
+  livenessProbe:
+    httpGet:
+      path: /
+    periodSeconds: 30
+    timeoutSeconds: 30
+  readinessProbe:
+    httpGet:
+      path: /
+    periodSeconds: 30
+    timeoutSeconds: 30
+  replicas: 1
+  quota: q512mb

@@ -1,0 +1,17 @@
+global:
+  namespace: vault-enterprise
+  openshift: true
+
+server:
+  dataStorage:
+    storageClass: ocs-storagecluster-ceph-rbd
+  image:
+    repository: "hashicorp/vault-enterprise"
+    tag: "1.20.0-ent"
+  ha:
+    enabled: true
+    replicas: 3
+    raft:
+      enabled: true
+  enterpriseLicense:
+    secretName: vault-ent-license

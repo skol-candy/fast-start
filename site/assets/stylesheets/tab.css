@@ -1,0 +1,144 @@
+/* BEGIN tab styling */
+.md-typeset .tabbed-set > input:nth-child(20):checked ~ .tabbed-labels > :nth-child(20) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(19):checked ~ .tabbed-labels > :nth-child(19) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(18):checked ~ .tabbed-labels > :nth-child(18) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(17):checked ~ .tabbed-labels > :nth-child(17) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(16):checked ~ .tabbed-labels > :nth-child(16) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(15):checked ~ .tabbed-labels > :nth-child(15) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(14):checked ~ .tabbed-labels > :nth-child(14) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(13):checked ~ .tabbed-labels > :nth-child(13) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(12):checked ~ .tabbed-labels > :nth-child(12) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(11):checked ~ .tabbed-labels > :nth-child(11) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(10):checked ~ .tabbed-labels > :nth-child(10) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(9):checked ~ .tabbed-labels > :nth-child(9) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > :nth-child(8) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(7):checked ~ .tabbed-labels > :nth-child(7) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > :nth-child(6) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > :nth-child(5) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(4):checked ~ .tabbed-labels > :nth-child(4) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(3):checked ~ .tabbed-labels > :nth-child(3) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(2):checked ~ .tabbed-labels > :nth-child(2) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-set > input:nth-child(1):checked ~ .tabbed-labels > :nth-child(1) {
+    background-color: var(--carbon-bg-active);
+    color: var(--carbon-fg-active-color);
+    font-weight: 700;
+}
+
+.md-typeset .tabbed-labels {
+    box-shadow: none;
+    background-color: var(--carbon-bg-inactive);
+    color: var(--carbon-fg-inactive-color);
+}
+
+    .md-typeset .tabbed-labels > label {
+        font-weight: 500;
+    }
+
+        .md-typeset .tabbed-labels > label:hover {
+            color: var(--carbon-accent-hov-fg-color);
+        }
+
+.md-typeset .tabbed-content {
+    background-color: var(--carbon-bg-active);
+    padding: 18px;
+}
+
+.js .md-typeset .tabbed-labels::before {
+    bottom: unset;
+}
+/* END tab styling */

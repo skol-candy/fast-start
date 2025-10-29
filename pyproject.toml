@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "Lightspeed TechPattern Template"
+version = "1.0.0"
+description = ""
+authors = []
+readme = "README.md"
+packages = [{include = "scripts", from = "."}]
+
+[tool.poetry.scripts]
+serve = "scripts:serve"
+build = "scripts:build"
+package = "scripts:build"
+unit-test = "scripts:empty"
+lint = "scripts:empty"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+jinja2 = ">= 3.1.2, < 3.2.0"
+markdown = ">= 3.3.7, < 3.4.0"
+mkdocs-glightbox = ">= 0.3.1, < 0.4.0"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.3"
+mkdocs-material-extensions = "^1.3"
+pygments = "^2.16"
+pymdown-extensions = "^10.2"
+mkdocs-minify-plugin = "^0.7.2"
+mkdocs-embed-external-markdown = "^3.0.1"
+babel = "^2.10"
+colorama = ">= 0.4, < 0.5"
+regex = ">= 2022.4.24, < 2022.5.0"
+requests = ">= 2.26, < 2.27"
+classifyibmcontent = "^3.0.0"
+
+
+[[tool.poetry.source]]
+name = "artifactory"
+url = "https://na.artifactory.swg-devops.com/artifactory/api/pypi/hyc-techzone-team-pypi-local/simple/"
+priority = "supplemental"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
